@@ -23,8 +23,14 @@ app.post('/add', (req, resp) => {
 app.post('/delete', (req, resp) => {
     // get list checkbox checked
     const listChecked = req.body.checkDelete
+    if(listChecked.length <=0)
+        return resp.redirect("/")
+    if(listChecked.length == 1){
+        courses = courses.filter(course => course.id != listChecked)
+        return resp.redirect("/")
+    }
     // delete course
-    const ids = listChecked.map(id => parseInt(id))
+    const ids = listChecked.map(id => parseInt(id)) 
     courses = courses.filter(course => !ids.includes(course.id))
     return resp.redirect("/")
 })
