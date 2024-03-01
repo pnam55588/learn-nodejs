@@ -18,48 +18,49 @@
         <input type="submit" value="submit">
     </form>
 
-    <table>
-        <caption>
-            Danh sách khóa học
-        </caption>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>type</th>
-                <th>semester</th>
-                <th>department</th>
-                <th>delete</th>
-            </tr>
-        </thead>
-        <form action="/delete" method="post">
-        <tbody>
-            <% courses.forEach(item=>{%>
+    <form action="/delete" method="post">
+        <table>
+            <caption>
+                Danh sách khóa học
+            </caption>
+            <thead>
                 <tr>
-                    <td>
-                        <%=item.id%>
-                    </td>
-                    <td>
-                        <%=item.name%>
-                    </td>
-                    <td>
-                        <%=item.course_type%>
-                    </td>
-                    <td>
-                        <%=item.semester%>
-                    </td>
-                    <td>
-                        <%=item.department%>
-                    </td>
-                    <td>
-                        <input type="checkbox" name="checkDelete" value=<%=item.id %>>
-                    </td>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>type</th>
+                    <th>semester</th>
+                    <th>department</th>
+                    <th>delete</th>
                 </tr>
-                <%});%>
-                <input type="submit" value="Delete">
-            </form>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <% courses.forEach(item=>{%>
+                    <tr>
+                        <td>
+                            <%=item.id%>
+                        </td>
+                        <td>
+                            <%=item.name%>
+                        </td>
+                        <td>
+                            <%=item.course_type%>
+                        </td>
+                        <td>
+                            <%=item.semester%>
+                        </td>
+                        <td>
+                            <%=item.department%>
+                        </td>
+                        <td>
+                            <input type="checkbox" name="checkDelete" value=<%=item.id %>>
+                        </td>
+                    </tr>
+                    <%});%>
+                    
+                </tbody>
+            </table>
+            <input type="submit" value="Delete">
+    </form>
 </body>
 
 </html>
